@@ -1,0 +1,64 @@
+package sortingMethods;
+	import java.util.Stack;
+
+	public class stackFIFO {
+	    private Stack<Integer> stackPush = new Stack<>();
+	    private Stack<Integer> stackPop = new Stack<>();
+
+	    public void push(int item) {
+	        stackPush.push(item);
+	    }
+
+	    public int pop() {
+	        if (stackPop.isEmpty()) {
+	            while (!stackPush.isEmpty()) {
+	                stackPop.push(stackPush.pop());
+	            }
+	        }
+	        return stackPop.pop();
+	    }
+
+	    public int peek() {
+	        if (stackPop.isEmpty()) {
+	            while (!stackPush.isEmpty()) {
+	                stackPop.push(stackPush.pop());
+	            }
+	        }
+	        return stackPop.peek();
+	    }
+}
+
+
+package sortingMethods;
+
+public class stackFIFOmain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+	        stackFIFO stackFIFO = new stackFIFO();
+	        stackFIFO.push(104);
+	        stackFIFO.push(88);
+	        stackFIFO.push(52);
+
+	        System.out.println("Popped: " + stackFIFO.pop()); // Output: 104
+	        System.out.println("Popped: " + stackFIFO.pop()); // Output: 88
+
+	        stackFIFO.push(25);
+
+	        System.out.println("Peeked: " + stackFIFO.peek()); // Output: 52
+	        System.out.println("Popped: " + stackFIFO.pop()); // Output: 52
+	        System.out.println("Popped: " + stackFIFO.pop()); // Output: 25
+	        
+	        stackFIFO.push(11);
+	        stackFIFO.push(7);
+	        
+	        System.out.println("Peeked: " + stackFIFO.peek()); // Output: 11
+	        System.out.println("Popped: " + stackFIFO.pop()); // Output: 11
+	        System.out.println("Popped: " + stackFIFO.pop()); // Output: 7
+	    }
+	
+	}
+
+
+
