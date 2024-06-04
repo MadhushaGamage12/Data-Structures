@@ -1,0 +1,70 @@
+package sortingMethods;
+
+
+	public class ArrayStack {
+	    private int maxSize;
+	    private int[] stackArray = {104,82,52,7};
+	    private int top;
+
+	    public ArrayStack(int size) {
+	        maxSize = size;
+	        stackArray = new int[maxSize];
+	        top = -1;
+	    }
+
+	    public void push(int value) {
+	        if (isFull()) {
+	            System.out.println("Stack is full. Cannot push " + value);
+	            return;
+	        }
+	        stackArray[++top] = value;
+	    }
+
+	    public int pop() {
+	        if (isEmpty()) {
+	            System.out.println("Stack is empty. Cannot pop.");
+	            return -1;
+	        }
+	        return stackArray[top--];
+	    }
+
+	    public int peek() {
+	        if (isEmpty()) {
+	            System.out.println("Stack is empty. Cannot peek.");
+	            return -1;
+	        }
+	        return stackArray[top];
+	    }
+
+	    public boolean isEmpty() {
+	        return top == -1;
+	    }
+
+	    public boolean isFull() {
+	        return top == maxSize - 1;
+	    }
+
+	    public void display() {
+	        System.out.print("Stack (top to bottom): ");
+	        for (int i = top; i >= 0; i--) {
+	            System.out.print(stackArray[i] + " ");
+	        }
+	        System.out.println();
+	    }
+
+	    public static void main(String[] args) {
+	        ArrayStack stack = new ArrayStack(5);
+
+	        stack.push(104);
+	        stack.push(82);
+	        stack.push(53);
+	        stack.push(7);
+	        stack.display();
+
+	        System.out.println("Popped element: " + stack.pop());
+	        stack.display();
+
+	        System.out.println("Peeked element: " + stack.peek());
+	    }
+	}
+
