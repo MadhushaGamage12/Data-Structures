@@ -1,0 +1,21 @@
+package dataStructure;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class arrayList_FIFO2 {
+	 public static void main() {
+		 ArrayList<Integer>numbers=new ArrayList<>();
+		 
+		 numbers.add(108);
+		 numbers.add(82);
+		 numbers.add(52);
+		 numbers.add(7);
+		 
+		 System.out.println("Initial list content: "+numbers);
+		 Collections.shuffle(numbers);
+		 
+		 System.out.println("Shuffle list content: "+numbers);
+		 Collections.shuffle(numbers);
+	 
+	 }
+}
