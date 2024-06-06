@@ -1,0 +1,18 @@
+package dataStructure;
+import java.util.ArrayDeque;
+
+public class arrayDeque_FIFO1 {
+ public static void main() {
+	 ArrayDeque<Integer> ad=new ArrayDeque<>();
+	 ad.add(108);
+	 ad.addFirst(82);
+	 ad.addFirst(52);
+	 ad.addLast(6);
+	 
+	
+	 
+	 System.out.println("Array deque content: "+ad);
+	 System.out.println("Remove last element: "+ad.pollLast());
+	 System.out.println("Array deque content: "+ad);
+ }
+}
