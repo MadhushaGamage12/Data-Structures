@@ -1,84 +1,60 @@
-package sortingMethods;
+package dataStructure;
 
-
-	import java.util.Iterator;
+	import java.util.LinkedList;
 	import java.util.NoSuchElementException;
+	public class StequeImplementation<T> {
 
+		    private LinkedList<T> list;
 
-	public class steque<Item> implements Iterable<Item> {
+		    public StequeImplementation() {
+		        list = new LinkedList<>();
+		    }
 
-		private Node first, last;
-		
-		private class Node {
-			Item item;
-			Node next;
-		}
-		
-		public steque() {
-			first = last = null;
-		}
-	
-		public void enqueue(Item item) {
-			Node oldLast = last;
-			last = new Node();
-			last.item = item;
-			last.next = null;
-			if (first == null)
-				first = last;
-			else
-				oldLast.next = last;
-		}
-		
-		public void push(Item item) {
-			Node oldFirst = first;
-			first = new Node();
-			first.item = item;
-			first.next = oldFirst;
-			if (last == null) 
-				last = first;
-		}
-	
-		public Item pop() {
-			if (isEmpty())
-				throw new NoSuchElementException("No element exists in Steque");
-			Item item = first.item;
-			first = first.next;
-			return item;
-		}
-		
-		public boolean isEmpty() {
-			return first == null || last == null;
-		}
-		
-		public int size() {
-			int count = 0;
-			for(Item item : this) {
-				count++;
-			}
-			return count;
-		}
-		
-		public Iterator<Item> iterator() {
-			return new StequeIterator(); 
-		}
-		
-		
-		public class StequeIterator implements Iterator<Item> {
-			Node current = first;
-			public boolean hasNext() {
-				return current != null;
-			}
-			
-			public Item next() {
-				Item item = current.item;
-				current = current.next;
-				return item;
-			}
+		    // Push element onto the front of the steque
+		    public void push(T item) {
+		        list.addFirst(item);
+		    }
 
-			public void remove() {
-				throw new UnsupportedOperationException("Operation not supported");
-				
-			}
-		}
-	}
+		    // Enqueue element onto the back of the steque
+		    public void enqueue(T item) {
+		        list.addLast(item);
+		    }
 
+		    // Pop element from the front of the steque
+		    public T pop() {
+		        if (isEmpty()) {
+		            throw new NoSuchElementException("Steque is empty");
+		        }
+		        return list.removeFirst();
+		    }
+
+		    // Check if the steque is empty
+		    public boolean isEmpty() {
+		        return list.isEmpty();
+		    }
+
+		    // Get the size of the steque
+		    public int size() {
+		        return list.size();
+		    }
+
+		    // Display the elements of the steque
+		    public void display() {
+		        System.out.println("Steque: " + list);
+		    }
+
+		    public static void main(String[] args) {
+		        StequeImplementation<Integer> steque = new StequeImplementation<>();
+		        steque.enqueue(108);
+		        steque.enqueue(52);
+		        steque.enqueue(83);
+		        steque.display();
+
+		        steque.push(10);
+		        steque.display(); 
+
+		        steque.pop();
+		        steque.display(); 
+		    }
+		
+}
