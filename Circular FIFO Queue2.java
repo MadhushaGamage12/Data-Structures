@@ -1,4 +1,4 @@
-package sortingMethods;
+package dataStructure;
 
 	import java.util.*; 
 	public class CircularQueue 
